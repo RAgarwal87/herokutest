@@ -1,0 +1,42 @@
+{% extends 'transactionbook/base.html' %}
+{% block title %}Customer_Supplier{% endblock %}
+{% load static %}
+{% block headscript %}
+            var data1 = {{ namelist1|safe }};
+{% endblock %}
+{% block content %}
+<div class="row">
+   <ul class="nav nav-pills" id="myTab">
+      <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+            <div class="caption">
+               <h3 align='center'>Customer</h3>
+               <p align='center' id ='av'>{{data1.Total_Customer_Cnt}}</p>
+               <p  align='center'><a data-toggle="tab" href="#sectionA" class="btn btn-primary"><span class="glyphicon glyphicon-cloud" ></span> Get</a></p>
+            </div>
+      </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+         <div class="caption">
+            <h3 align='center'>Product</h3>
+            <p align='center'>Product Purchase details</p>
+            <p  align='center'><a data-toggle="tab" href="#sectionB" class="btn btn-primary"><span class="glyphicon glyphicon-cloud" ></span> Get</a></p>
+         </div>
+      </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+         <div class="caption">
+            <h3 align='center'>Order</h3>
+            <p align='center'>Re-Order list </p>
+            <p align='center'><a data-toggle="tab" href="#sectionC" class="btn btn-primary"><span class="glyphicon glyphicon-cloud" ></span> Get</a></p>
+         </div>
+      </div>
+      </div>
+   </ul>
+</div>
+{% endblock %}
+{% block scripting %}
+   document.getElementById("av").innerHTML =data1.Total_Customer_Cnt;
+{% endblock %}
